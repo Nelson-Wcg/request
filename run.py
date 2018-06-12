@@ -1,14 +1,11 @@
 # encoding: utf-8
-
-import requests
-import settings
+import os
+from request import Request
 from wechat import Wechat
 
-# 请求文章地址
-url = "http://localhost:8087"
-ret = requests.get(url)
-print(ret.url)
-print(ret.text)
 
+请求文章地址
+request = Request()
+url = request.do_request()
 wechat = Wechat()
-wechat.request_message(ret.text)
+wechat.request_message(url)
